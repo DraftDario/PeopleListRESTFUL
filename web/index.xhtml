@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <f:loadBundle basename="ch.hearc.ig.odi.peoplelist.service.bundle" var="bundle"/>
+    <h:head>
+        <title>index</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/main.xhtml">
+            <ui:define name="top">Liste des personnes:</ui:define>
+            <ui:define name="content">
+                <h:dataTable styleClass="people-table" headerClass="people-table-header" rowClasses="people-table-odd-row,people-table-even-row" value="#{peopleListBean.peopleList}" var="person">
+
+                    <h:column>
+                        <f:facet name="header">#{bundle.id}</f:facet>
+                            #{person.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{bundle.firstName}</f:facet>
+                            #{person.firstName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{bundle.lastName}</f:facet>
+                            #{person.lastName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{bundle.gender}</f:facet>
+                            #{person.gender}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{bundle.married}</f:facet>
+                            #{person.married}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{bundle.birthDate}</f:facet>
+                        <h:outputText value="#{person.birthDate}" >
+                            <f:convertDateTime pattern="dd.MM.yyyy" />
+                        </h:outputText>
+                    </h:column>
+                </h:dataTable>
+
+
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
+

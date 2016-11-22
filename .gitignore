@@ -1,0 +1,11 @@
+test
+# Ignorer tous les fichiers nommés foo.txt
+foo.txt
+# Ignorer les objets et les archives
+*.[oa]
+#Ignorer les builds
+/build/
+#Ignorer private
+/nbproject/private/
+#Ignorer dist (.war)
+/dist/
